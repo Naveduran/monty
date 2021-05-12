@@ -6,27 +6,27 @@
  * Return: Returns the return of the function executed is there is a match,
  * otherwise returns -1.
  **/
-int opcode_list(data_of_program *instruction, int *data)
+int opcode_list(data_of_program *data)
 {
 	int iterator;
 	instruction_t options[] = {
-		{"push", _push_instruction},
-		{"pall", pall_instruction},
-		{"pint", pint_instruction},
-		{"pop", pop_instruction},
-		{"add", add_instruction},
-		{"nop", nop_instruction},
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
 	/*walk through the structure*/
-	for (iterator = 0; options[iterator].instruction_t != NULL; iterator++)
+	for (iterator = 0; options[iterator].opcode != NULL; iterator++)
 	{
 		/*if there is a match between the given command and a builtin,*/
-		if (str_compare(options[iterator].instruction, data->/*must be the instruction */ /* command_name*/, 0))
+		if (str_compare(options[iterator].opcode, data->instruction, 0))
 		{
 			/*execute the function, and return the return value of the function*/
-			return (options[iterator].function( /* **stack, line_number   */));
+			return (options[iterator].function(data));
 		}
 		/*if there is no match return -1 */
 	}
