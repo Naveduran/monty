@@ -5,7 +5,7 @@
  * @argv: array of arguments pased to the program execution
  * @argc: number of values received from the command line
  */
-void inicialize_data(data_of_program *data, int argc, char *argv[],)
+void inicialize_data(data_of_program *data, int argc, char *argv[])
 {
 	stack_t	*head = NULL;
 
