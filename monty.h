@@ -72,7 +72,7 @@ typedef struct info
 	char *file_path;
 	char *file_name;
 	char *file_content;
-	stack_t **head;
+	stack_t **stack;
 } data_of_program;
 
 /************** MAIN FUNCTIONS **************/
@@ -83,7 +83,24 @@ typedef struct info
 
 
 
-/************** HELPERS ********************/
+/************** LIST HELPERS ***************/
+
+/* print all the nodes of the stack */
+size_t print_stack(stack_t *stack);
+/* return the number of elements in the stack */
+size_t stack_len(stack_t *stack);
+/* add node in stack */
+stack_t *add_node(stack_t **stack, int n);
+/* add node at end of a stack */
+stack_t *add_node_end(stack_t **stack, int n);
+/* free stack */
+void free_stack(stack_t *stack);
+
+
+
+
+
+
 
 
 #endif /* HOLBERTON_H */

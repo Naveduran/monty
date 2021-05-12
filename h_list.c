@@ -18,9 +18,9 @@ size_t print_stack(stack_t *stack)
  * @stack: pointer to head of the stack
  * Return: number of nodes in the stack
  */
-int stack_len(stack_t *stack)
+size_t stack_len(stack_t *stack)
 {
-	int i = 0;
+	size_t i = 0;
 
 	if (head == NULL)
 		return (0);
@@ -71,7 +71,6 @@ stack_t *add_node(stack_t **stack, int n)
  */
 stack_t *add_node_end(stack_t **stack, int n)
 {
-	/* initialitation of variables */
 	stack_t *new = NULL, *prev = NULL;
 
 	if (!head)
