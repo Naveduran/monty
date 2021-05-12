@@ -21,13 +21,13 @@
 
 /* ERROR MESSAGES */
 
-#define ERRMSG0 "USAGE: monty file"
+#define ERRMSG0 "USAGE: monty file\n"
 
-#define ERRMSG1 "Error: Can't open file $Error: Can't open file <file>"
+#define ERRMSG1 "Error: Can't open file $Error: Can't open file <file>\n"
 
-#define ERRMSG2 "L<line_number>: unknown instruction <opcode>"
+#define ERRMSG2 "L<line_number>: unknown instruction <opcode>\n"
 
-#define ERRMSG3 "Error: malloc failed"
+#define ERRMSG3 "Error: malloc failed\n"
 
 /************* STRUCTURES **************/
 
