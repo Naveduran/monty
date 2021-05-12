@@ -23,9 +23,9 @@
 
 #define ERRMSG0 "USAGE: monty file\n"
 
-#define ERRMSG1 "Error: Can't open file $Error: Can't open file <file>\n"
+#define ERRMSG1 "Error: Can't open file %s\n", data->file_name
 
-#define ERRMSG2 "L<line_number>: unknown instruction <opcode>\n"
+#define ERRMSG2 "L%d: unknown instruction %s\n", data->line, opcode
 
 #define ERRMSG3 "Error: malloc failed\n"
 
@@ -68,11 +68,11 @@ typedef struct instruction_s
  */
 typedef struct info
 {
-	int line_counter;
+	int line;
 	char *file_path;
 	char *file_name;
 	char *file_content;
-	char **stack_t;
+	stack_t **head;
 } data_of_program;
 
 /************** MAIN FUNCTIONS **************/
