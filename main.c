@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	inicialize_data(data, argc, argv);
 	/* open and read the data from file return a buffer to file data */
-	data->file_content = open_file(data->file_path);
+	open_file(data);
 	/* tokenized of file data */
 
 	gen_tokens = _strtok(data->file_content, '\n');
