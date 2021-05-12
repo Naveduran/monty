@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	data_of_program data_struct = {NULL}, *data = &data_struct;
-	inicialize_data(data, argc, argv, env);
+	inicialize_data(data, argc, argv);
 
 	error_code = string_len = _getline(data);
 
