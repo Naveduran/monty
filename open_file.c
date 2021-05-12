@@ -6,15 +6,16 @@
  *
  *
  */
-char **open_file(*argv, **head)
+char **open_file(char *argv) /* recive a  route to file to open */
 {
-	/* initialization of vars */
-	struct_stat stat_struc;
+
+  /* initialization of vars */
+	struct_stat stat_struc; /*struct to save the data from stack funtion */
 	size_of i;
-	ssize_of ssize_of file_desc; read_status;
-	char *file_data=[1024];
+	ssize_of ssize_of file_desc; read_status; /* var to save status from read and open functions */
+	char *file_data=[1024]; /* buffer to save the read data from file */
 	
-/* stat over absolute route to argv */
+  /* stat over absolute route to argv */
 	if (stat(argv, stat_struc) == -1)
 	{
 		fprintf/*print error mensaje */
