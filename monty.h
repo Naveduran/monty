@@ -77,6 +77,12 @@ typedef struct info
 
 /************** MAIN FUNCTIONS **************/
 
+/************** _STRTOK FUNCTIONS **************/
+
+char *_strdup(char *str);
+int countargs(char *copytext, char *delimiter);
+char **_split(int args, char *text, char *delimiter);
+char **_strtok(char *text, char *delimiter);
 
 
 /************** OP FUNCTIONS ***************/
