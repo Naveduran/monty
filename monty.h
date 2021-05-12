@@ -19,16 +19,6 @@
 /* Buffer size for each read of file */
 #define BUFFER_SIZE 4048
 
-/* ERROR MESSAGES */
-
-#define ERRMSG0 "USAGE: monty file\n"
-
-#define ERRMSG1 "Error: Can't open file %s\n", data->file_name
-
-#define ERRMSG2 "L%d: unknown instruction %s\n", data->line, opcode
-
-#define ERRMSG3 "Error: malloc failed\n"
-
 /************* STRUCTURES **************/
 
 /**
@@ -68,7 +58,7 @@ typedef struct instruction_s
  */
 typedef struct info
 {
-	int line;
+	unsigned int line;
 	char *file_path;
 	char *file_name;
 	char *file_content;
@@ -76,6 +66,10 @@ typedef struct info
 } data_of_program;
 
 /************** MAIN FUNCTIONS **************/
+
+
+/* print error message to stout and exit_failure to stderr */
+void error_manage(int error);
 
 /************** _STRTOK FUNCTIONS **************/
 
