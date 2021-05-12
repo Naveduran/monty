@@ -4,7 +4,7 @@
 #include <stdio.h> /* for printf*/
 #include <unistd.h> /* for fork, execve*/
 #include <stdlib.h> /* for exit failure or success*/
-#include <string.h> /* for strtok*/
+#include <string.h> /* for strtok, strlen*/
 #include <errno.h> /* for errno and perror */
 #include <sys/types.h> /* for type pid */
 #include <sys/wait.h> /* for wait */
@@ -13,6 +13,21 @@
 
 /************* MACROS **************/
 
+/* Resume from the unused attibute */
+#define UNUSED __attribute__((unused))
+
+/* Buffer size for each read of file */
+#define BUFFER_SIZE 4048
+
+/* ERROR MESSAGES */
+
+#define ERRMSG0 "USAGE: monty file"
+
+#define ERRMSG1 "Error: Can't open file $Error: Can't open file <file>"
+
+#define ERRMSG2 "L<line_number>: unknown instruction <opcode>"
+
+#define ERRMSG3 "Error: malloc failed"
 
 /************* STRUCTURES **************/
 
@@ -50,12 +65,12 @@ typedef struct instruction_s
 
 /**
  * struct info- struct for the program's data
- * @file: pointer to a string containing the full file
- * @d_list: pointer to double linked list of tokenized file
  */
 typedef struct info
 {
-	char *file;
+	int line_counter;
+	char *file_path;
+	char *file_content;
 	char **d_list;
 } data_of_program;
 

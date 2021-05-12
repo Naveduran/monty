@@ -7,6 +7,19 @@
  */
 void inicialize_data(data_of_program *data, int argc, char *argv[],)
 {
-	data->input_line = NULL;
-	data->tokens = NULL;
+	stack_t	*head = NULL;
+
+	if (argc == 1 || argc > 2)
+/* just 'monty' on the command line or more than two arguments */
+	{
+		printf("%s", ERRMSG0); /**/
+		fprinf(stderr, EXIT_FAILURE, strlen(EXIT_FAILURE))
+			exit;
+	}
+	file_path = argv[1]
+	data->file_path = NULL;
+	data->file_name = NULL;
+	data->file_content = NULL;
+	data->line_counter = 0;
+	data->head= **head;
 }
