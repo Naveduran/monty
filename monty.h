@@ -70,8 +70,9 @@ typedef struct info
 {
 	int line_counter;
 	char *file_path;
+	char *file_name;
 	char *file_content;
-	char **d_list;
+	char **stack_t;
 } data_of_program;
 
 /************** MAIN FUNCTIONS **************/
