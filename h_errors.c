@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * error_manage - print to the stderr and stout
+ * error_manage - print error message to stout and exit_failure to stderr
  * @error: number of the error
  */
 void error_manage(int error)
@@ -13,8 +13,5 @@ void error_manage(int error)
 		printf("L%d: unknown instruction %s\n", data->line, opcode);
 	if (error == 3)
 		printf("Error: malloc failed\n");
-
-	fprintf(stderr, EXIT_FAILURE, strlen(EXIT_FAILURE));
-
-	return (0);
+	exit(EXIT_FAILURE);
 }
