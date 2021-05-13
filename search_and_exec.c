@@ -8,6 +8,7 @@
 void list(data_of_program *data)
 {
 	int iterator = 0;
+	int found = 0;
 	instruction_t options[] = {
 		{"push", push},
 		{"pall", pall},
@@ -26,6 +27,10 @@ void list(data_of_program *data)
 		if (str_compare(options[iterator].opcode, data->words[0], 0) == 1)
 		{
 			options[iterator].function(data);
+			found = 1;
 		}
 	}
+	if (found == 0)
+		error(data, 2);
+
 }
