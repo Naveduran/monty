@@ -25,7 +25,6 @@ void list(data_of_program *data)
 		/*if there is a match between the given command and a builtin,*/
 		if (str_compare(options[iterator].opcode, data->words[0], 0) == 1)
 		{
-			printf("encontré coincidencia con %s\n", data->words[0]);
 			options[iterator].function(data);
 		}
 	}
