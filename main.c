@@ -1,29 +1,27 @@
 #include "monty.h"
-
 /**
  * main - entry point and general management
  * @argv: argument values
  * @argc: argument counter
  * Return: 0 if success, other value if error
  */
-
 int main(int argc, char *argv[])
 {
-	int i;
-	data_of_program data_struct = {NULL}, *data = &data_struct;
+	data_of_program data_struct, *data = &data_struct;
+	char *delim_line = "\n", *delim_spc = " ", **lines, **words;
+	int i = 0;
 
-	inicialize_data(argc, argv, data);
+	inicialize_data(data, argc, argv);
+	/* printf("%s path\n", argv[1]); TEST PRINT*/
 	/* open and read the data from file return a buffer to file data */
-	open_file(data);
-	/* tokenized of file data */
-
+	open_file(data, argv);
 	/*tokenize */
-	data->lines = _strtok(data->file_content, '\n');
-	for (i = 0; data->(*lines[i]) != NULL; i++)
+	lines = data->lines = _strtok(data->file_content, delim_line);
+	while (lines[i] != NULL)
 	{
-		data->words = _strtok(*lines[i], ' ');
-/*		opcode_list(data->(*words[0]), data->(*words[1]));*/
+		words = data->words = _strtok(lines[i], delim_spc);
+		(opcode_list(words[0]))(data->head, words[1]);
+		i++;
 	}
-
 	return (0);
 }
