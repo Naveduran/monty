@@ -26,7 +26,7 @@ void (*opcode_list(char *instruction))\
 	for (iterator = 0; options[iterator].opcode != NULL; iterator++)
 	{
 		/*if there is a match between the given command and a builtin,*/
-		if (str_compare(options[iterator].opcode, instruction) == 0)
+		if (str_compare(options[iterator].opcode, instruction, 0) == 0)
 			options[iterator].function;
 	}
 }
