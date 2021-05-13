@@ -7,7 +7,6 @@ void push(data_of_program *data)
 {
 	int i, new;
 
-/*	data->words[1];*/
 /*If it's not a number, give error*/
 	for (i = 0; data->words[1][i]; i++)
 	{
@@ -16,7 +15,7 @@ void push(data_of_program *data)
 	}
 /*else, convert and push the new element to the beginning of the stack*/
 	new = atoi(data->words[1]);
-	add_node_end(data->stack, new);
+	add_node_end(&(data->head), new);
 }
 
 /**
@@ -25,5 +24,5 @@ void push(data_of_program *data)
  */
 void pall(data_of_program *data)
 {
-	print_stack((*data->stack));
+	print_stack((data->head));
 }
