@@ -5,7 +5,7 @@
  */
 void pint(data_of_program *data)
 {
-	stack_p *stack;
+	stack_p *stack = NULL;
 	stack = data->head;
 
 	if (!data->head)
@@ -22,7 +22,7 @@ void pint(data_of_program *data)
  */
 void pop(data_of_program *data)
 {
-	if (!data->stack)
+	if (!data->head)
 		error(data, 6);
-	delete_at_index(data->stack, 0);/* Erase the first node */
+	delete_at_end(data->head);/* Erase the first node */
 }

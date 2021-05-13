@@ -5,44 +5,15 @@
  * @index: index
  * Return: 1 if succes -1 if failed
  */
-int delete_at_index(stack_p **stack, unsigned int index)
+void delete_at_end(stack_p *stack)
 {
-	stack_p *clear = NULL;
-	unsigned int i = 0;
-
-	if (stack == NULL || *stack == NULL)
-		return (-1);
-	clear = *stack;
-	for (; i != index && clear != NULL; i++)
+	stack_p *pop = NULL;
+	pop = stack;
+	if(pop->next == NULL )
 	{
-		clear = clear->next;
+		pop->prev->next = NULL;
+		free(pop);
+		return;
 	}
-	if (index == 0) /* delete node at the begin */
-	{
-		if (clear->next == NULL)
-		{
-			free(clear);
-			*stack = NULL;
-		}
-		else
-		{
-			clear->next->prev = NULL;
-			(*stack) = clear->next;
-			free(clear);
-		}
-	}
-	else if (i == index && clear->next != NULL) /* delete node in the middle */
-	{
-		clear->next->prev = clear->prev;
-		clear->prev->next = clear->next;
-		free(clear);
-	}
-	else if (i == index && clear->next == NULL) /*delete node at the end */
-	{
-		clear->prev->next = NULL;
-		free(clear);
-	}
-	else
-		return (-1);
-	return (1);
+	delete_at_end(pop->next);
 }

@@ -110,7 +110,7 @@ int delete_at_index(stack_p **stack, unsigned int index);
 /* fill a buff with a char */
 char *_memset(char *s, char b, unsigned int n);
 /* delete a node */
-int delete_at_index(stack_p **stack, unsigned int index);
+void delete_at_end(stack_p *stack);
 
 /* strtok */
 char *_strdup(char *str);
