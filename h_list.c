@@ -7,7 +7,6 @@
  */
 void print_stack(stack_p *stack)
 {
-	
 	if (!stack)
 		return;
 	print_stack(stack->next);
@@ -23,7 +22,7 @@ size_t stack_len(stack_p **stack)
 {
 	size_t i = 0;
 
-	if (stack == NULL || *stack == NULL )
+	if (stack == NULL || *stack == NULL)
 		return (0);
 	for (i = 0; *stack != NULL; i++)
 	{
@@ -47,7 +46,7 @@ stack_t *add_node(stack_p **stack, int n)
 
 	new = malloc(sizeof(stack_p));
 	if (new == NULL)
-		return (NULL);
+		error(data, 3);
 
 	new->prev = NULL;
 	new->n = n;
@@ -79,7 +78,7 @@ stack_t *add_node_end(stack_p **stack, int n)
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return (NULL);
+		error(data, 3);
 	new->n = n;
 	new->next = NULL;
 
@@ -103,7 +102,7 @@ stack_t *add_node_end(stack_p **stack, int n)
 
 /**
  * free_stack - free stack
- * @head: pointer to head of the stack
+ * @stack: pointer to head of the stack
  */
 void free_stack(stack_p **stack)
 {
