@@ -1,11 +1,14 @@
 #include "monty.h"
 /**
  * builtins_list - search for match and execute the associate builtin
+ * @instructions: ..
+ * @new: ...
  * @data: struct for the program's data
  * Return: Returns the return of the function executed is there is a match,
  * otherwise returns -1.
  **/
-void (*opcode_list(char *instruction))(stack_p **,  char *, data_of_program *)
+void (*opcode_list(char *instruction))\
+(stack_p ** stack, char * new, data_of_program *)
 {
 	int iterator = 0;
 	instruction_t options[] = {
@@ -24,9 +27,6 @@ void (*opcode_list(char *instruction))(stack_p **,  char *, data_of_program *)
 	{
 		/*if there is a match between the given command and a builtin,*/
 		if (strcmp(options[iterator].opcode, instruction) == 0)
-					return ((options[iterator]).function); /*options[iterator].function;*/
+			options[iterator].function;
 	}
-	/* imprimri error funcion no encontrada */
-	printf("error comando no encontrado");
-	exit (-1);
 }
