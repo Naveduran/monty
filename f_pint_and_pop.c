@@ -5,9 +5,15 @@
  */
 void pint(data_of_program *data)
 {
-	if (!data->stack)
+	stack_p *stack;
+	stack = data->head;
+
+	if (!data->head)
 		error(data, 5);
-	printf("%d\n", (*data->stack)->n);
+/* loop to goes at the last element in stack */
+	for(;stack->next != NULL; stack = stack->next)
+	{}
+	printf("%d\n", (stack->n));
 }
 
 /**
