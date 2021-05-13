@@ -79,19 +79,19 @@ char **_strtok(char *text, char *delimiter);
 
 /************** OP FUNCTIONS ***************/
 /* pushes an element to the stack */
-void push(stack_p **stack, char  *data, data_of_program *data);
+void push(stack_p **stack, char *n, data_of_program *data);
 /* prints all the values on the stack, starting from the top of the stack */
-void pall(stack_p **stack, char  *data, data_of_program *data);
+void pall(stack_p **stack, char *n, data_of_program *data);
 /* prints the value at the top of the stack, followed by a new line */
-void pint(stack_p **stack, char  *data, data_of_program *data);
+void pint(stack_p **stack, char *n, data_of_program *data);
 /* removes the top element of the stack */
-void pop(stack_p **stack, char  *data, data_of_program *data);
+void pop(stack_p **stack, char *n, data_of_program *data);
 /* adds the top two elements of the stack */
-void add(stack_p **stack, char  *data, data_of_program *data);
+void add(stack_p **stack, char *n, data_of_program *data);
 /* swaps the top two elements of the stack */
-void swap(stack_p **stack, char  *data, data_of_program *data);
+void swap(stack_p **stack, char *n, data_of_program *data);
 /* do nothing */
-void nop(stack_p **stack, char  *data, data_of_program *data);
+void nop(stack_p **stack, char *n, data_of_program *data);
 /************** LIST HELPERS ***************/
 
 /* print all the nodes of the stack */
