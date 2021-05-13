@@ -21,7 +21,7 @@ char *_strdup(char *str)
 	dup = malloc(sizeof(char) * (i));
 
 	if (dup == NULL)
-		return (NULL);
+		error(data, 3);
 
 	for (; j <= i; j++)
 	{
@@ -42,11 +42,11 @@ int countargs(char *copytext, char *delimiter)
 int args = 0, k = 0;
 
 do {
-	if ((copytext[k] == *delimiter) && (copytext[k-1] == ' '))
+	if ((copytext[k] == *delimiter) && (copytext[k - 1] == ' '))
 		k++;
 	else if ((copytext[k] == *delimiter  ||
 					copytext[k + 1] == '\0') &&
-					(k != 0 ))
+					(k != 0))
 		args++;
 	k++;
 } while (copytext[k] != '\0');
@@ -68,7 +68,7 @@ char **_split(int args, char *text, char *delimiter)
 
 	gen_tokens = malloc(sizeof(char *) * (args + 1));
 	if (gen_tokens == NULL)
-		exit(128); /* revisar salida */
+		error(data, 3);
 
 	currenttext = text; /* donde inia el argumento */
 	for (i = 0; i < args; i++)
