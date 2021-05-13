@@ -6,15 +6,13 @@
  *
  *
  */
-void open_file(data_of_program *data) /* recive a  route to a file */
+void *open_file(data_of_program *data) /* recive a  route to a file */
 {
 
   /* initialization of vars */
 	struct_stat stat_struc; /*struct to save the data from stack funtion */
 	int size = 0;
 	ssize_of  open_status, read_status;
-/* var to save status from read and open functions */
-	char *file_data[BUFFER_SIZE]; /* buffer to save the read data from file */
 
   /* stat over absolute route to argv */
 	if (stat(file_path, stat_struc) == -1)
@@ -32,10 +30,12 @@ void open_file(data_of_program *data) /* recive a  route to a file */
 	}
   /*  if  the  file exist then read */
   size = stat_struc->st_size;
-	read_status = read(open_status, file_data, size);
+	if (read(open_status, data->file_content, size) == -1)
+	{
+		fprintf; /*imprimir salida de error*/
+		exit;
+	}
 
 	printf(file_data); /* TESTING PRINT */
-
-  data->lines= _strtok(file_data, ' ');
-	return (0);
+	
 }
