@@ -1,51 +1,5 @@
 #include "monty.h"
 /**
- * lines_format - give format to the actual line
- * @data: data of program structure
- * Return:..
- */
-void lines_format(data_of_program *data)
-{
-	char *line = data->actual_line;
-
-	erase_double_spaces(line);
-}
-
-/**
- * erase_extra_spaces - erase extra spaces in an array of chars
- * @line: line to clean
- * Return:..
- */
-void erase_double_spaces(char *line)
-{
-	char buf[512];
-	int i = 0, counter = 0;
-
-	printf("Llega=%s\n", line);
-
-	for (; i <= strlen(line); i++)
-	{
-		if (line[i] == ' ' && line[i + 1] == ' ' && line[i + 2] == ' ')
-		{
-			i = i + 2;
-		}
-		else if (line[i] == ' ' && line[i + 1] == ' ')
-		{
-			i = i + 2;
-		}
-		else
-		{
-		}
-		buf[counter] = line[i];
-		counter++;
-	}
-	buf[counter] = '\0';
-
-	printf("Sale=%s\n", buf);
-	line = buf;
-}
-
-/**
  * str_compare - Compare two strings
  * @string1: String one, or the shorter
  * @string2: String two, or the longer
