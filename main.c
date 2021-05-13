@@ -17,12 +17,13 @@ int main(int argc, char *argv[])
 	open_file(data, argv);
 	/*tokenize */
 	lines = data->lines = _strtok(data->file_content, delim_line);
-	while (lines[data->line_number - 1] != NULL)
+	while (lines[i] != NULL)
 	{
 		data->words = _strtok(lines[i], delim_spc);
 		printf("Instruction=%s %s\n", data->words[0], data->words[1]);
 		list(data);
 		data->line_number = data->line_number + 1;
+		i++;
 	}
 	return (0);
 }
