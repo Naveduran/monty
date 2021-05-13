@@ -1,15 +1,16 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdio.h> /* for printf*/
-#include <unistd.h> /* for fork, execve*/
-#include <stdlib.h> /* for exit failure or success*/
-#include <string.h> /* for strtok, strlen*/
-#include <errno.h> /* for errno and perror */
-#include <sys/types.h> /* for type pid */
-#include <sys/wait.h> /* for wait */
-#include <sys/stat.h> /* for use of stat function */
-#include <fcntl.h> /* for open files*/
+#include <stdio.h> /* For printf */
+#include <unistd.h> /* For fork, execve */
+#include <stdlib.h> /* For exit failure or success */
+#include <string.h> /* For strtok, strlen */
+#include <errno.h> /* For errno and perror */
+#include <sys/types.h> /* For type pid */
+#include <sys/wait.h> /* For wait */
+#include <sys/stat.h> /* For use of stat function */
+#include <fcntl.h> /* For open files */
+#include <ctype.h> /* For isdigit */
 
 /************* MACROS **************/
 
@@ -25,9 +26,6 @@
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct stack_s
 {
@@ -41,57 +39,57 @@ typedef struct stack_s
  */
 typedef struct info
 {
-	/*data how changes every line */
+/*data who changes every line */
 	unsigned int line_number;
-	char *actual_line;
 	char **words;
-  /* data who don't change */
+/* data who don't change */
 	char file_content[BUFFER_SIZE];
 	char *file_path;
 	char **lines;
-	stack_p **head;
+/* the double linked list to operate on */
+	stack_p **stack;
 } data_of_program;
 
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
- *
- * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*function)(stack_p **stack, char *n, data_of_program *data);
+	void (*function)(data_of_program *data);
 } instruction_t;
 
 /************** MAIN FUNCTIONS **************/
 
 /* print error message to stout and exit_failure to stderr */
 void inicialize_data(data_of_program *data, int argc, char *argv[]);
+
 void open_file(data_of_program *data, char *argv[]);
+
 void error(data_of_program *data, int error);
-void (*opcode_list(char *instruction))(stack_p **stack, char *n, data_of_program *data);
+
+void opcode_list (data_of_program *data);
 
 char **_strtok(char *text, char *delimiter);
 
 
 /************** OP FUNCTIONS ***************/
 /* pushes an element to the stack */
-void push(stack_p **stack, char *n, data_of_program *data);
+void push(data_of_program *data);
 /* prints all the values on the stack, starting from the top of the stack */
-void pall(stack_p **stack, char *n, data_of_program *data);
+void pall(data_of_program *data);
 /* prints the value at the top of the stack, followed by a new line */
-void pint(stack_p **stack, char *n, data_of_program *data);
+void pint(data_of_program *data);
 /* removes the top element of the stack */
-void pop(stack_p **stack, char *n, data_of_program *data);
+void pop(data_of_program *data);
 /* adds the top two elements of the stack */
-void add(stack_p **stack, char *n, data_of_program *data);
+void add(data_of_program *data);
 /* swaps the top two elements of the stack */
-void swap(stack_p **stack, char *n, data_of_program *data);
+void swap(data_of_program *data);
 /* do nothing */
-void nop(stack_p **stack, char *n, data_of_program *data);
+void nop(data_of_program *data);
 /************** LIST HELPERS ***************/
 
 /* print all the nodes of the stack */
