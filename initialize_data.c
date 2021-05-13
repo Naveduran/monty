@@ -15,7 +15,7 @@ void inicialize_data(data_of_program *data, int argc, char *argv[])
 	}
 	data->file_path = argv[1];
 	printf("%s\n", data->file_path); /*test line*/
-	data->line_number = 0;
+	data->line_number = 1;
 	data->actual_line = NULL;
 	data->lines = NULL;
 	data->words = NULL;
