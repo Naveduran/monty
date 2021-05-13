@@ -49,27 +49,27 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*function)(data_of_program *data);
 } instruction_t;
-
 
 /**
  * struct info- struct for the program's data
  */
 typedef struct info
 {
-	unsigned int line;
+	unsigned int line_number;
 	char *file_path;
-	char *file_name;
 	char *file_content;
+	char *actual_line;
+	char **lines;
+	char **words;
 	stack_t **stack;
 } data_of_program;
 
 /************** MAIN FUNCTIONS **************/
 
-
 /* print error message to stout and exit_failure to stderr */
-void error_manage(int error);
+void error_manage(int error, data_of_program *data);
 
 /************** _STRTOK FUNCTIONS **************/
 

@@ -7,7 +7,7 @@
  */
 void inicialize_data(data_of_program *data, int argc, char *argv[])
 {
-	stack_t	*head = NULL;
+	stack_t	*stack = NULL;
 
 	if (argc == 1 || argc > 2)
 /* just 'monty' on the command line or more than two arguments */
@@ -17,8 +17,10 @@ void inicialize_data(data_of_program *data, int argc, char *argv[])
 			exit;
 	}
 	data->file_path = argv[1];
-	data->file_name = NULL;
-	data->file_content = NULL;
+	data->file_content[BUFFER_SIZE]= NULL;
 	data->line_counter = 0;
-	data->stack_t = **head;
+	data->actual_line = NULL;
+	data->lines = NULL;
+	data->words = NULL;
+	data->stack_t = **stack;
 }
