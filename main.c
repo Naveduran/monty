@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
 	while (lines[i] != NULL)
 	{
 		data->words = _strtok(lines[i], delim_spc);
-		printf("Instruction=%s %s\n", data->words[0], data->words[1]);
 		list(data);
 		data->line_number = data->line_number + 1;
 		i++;
