@@ -42,6 +42,7 @@ typedef struct info
 /*data who changes every line */
 	unsigned int line_number;
 	char **words;
+	char *actual_line;
 /* data who don't change */
 	char file_content[BUFFER_SIZE];
 	char *file_path;
@@ -93,7 +94,7 @@ void nop(data_of_program *data);
 /************** LIST HELPERS ***************/
 
 /* print all the nodes of the stack */
-size_t print_stack(stack_p *stack);
+size_t print_stack(stack_p **stack);
 /* return the number of elements in the stack */
 size_t stack_len(stack_p *stack);
 /* add node in stack */
