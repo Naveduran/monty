@@ -47,6 +47,7 @@ typedef struct info
 	char file_content[BUFFER_SIZE];
 	char *file_path;
 	char **lines;
+	stack_p *head;
 	/* the double linked list to operate on */
 	stack_p **stack;
 } data_of_program;
@@ -94,7 +95,7 @@ void nop(data_of_program *data);
 /************** LIST HELPERS ***************/
 
 /* print all the nodes of the stack */
-size_t print_stack(stack_p *stack);
+void print_stack(stack_p *stack);
 /* return the number of elements in the stack */
 size_t stack_len(stack_p **stack);
 /* add node in stack */
