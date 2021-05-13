@@ -1,18 +1,18 @@
-#include "lists.h"
+#include "monty.h"
 /**
- * delete_dnodeint_at_index - insert node to index possition
- * @head: pointer to pointer to head of a linked list
- * @index: index to insert a new node
+ * delete_at_index - delete node at index position
+ * @stack: pointer to the head of stack
+ * @index: index
  * Return: 1 if succes -1 if failed
  */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_at_index(stack_p **stack, unsigned int index)
 {
-	dlistint_t *clear = NULL;
+	stack_p *clear = NULL;
 	unsigned int i = 0;
 
-	if (head == NULL || *head == NULL)
+	if (stack == NULL || *stack == NULL)
 		return (-1);
-	clear = *head;
+	clear = *stack;
 	for (; i != index && clear != NULL; i++)
 	{
 		clear = clear->next;
@@ -22,16 +22,16 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		if (clear->next == NULL)
 		{
 			free(clear);
-			*head = NULL;
+			*stack = NULL;
 		}
 		else
 		{
 			clear->next->prev = NULL;
-			(*head) = clear->next;
+			(*stack) = clear->next;
 			free(clear);
 		}
 	}
-	else if (i == index && clear->next != NULL) /* inser node in the middle */
+	else if (i == index && clear->next != NULL) /* delete node in the middle */
 	{
 		clear->next->prev = clear->prev;
 		clear->prev->next = clear->next;
