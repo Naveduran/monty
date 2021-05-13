@@ -3,21 +3,20 @@
  * push - pushes an element to the stack
  * @data: data of program
  */
-void push(data_of_program *data UNUSED)
+void push(data_of_program *data)
 {
-  int i, new;
+	int i, new;
 
 	data->words[1];
-
 /*If it's not a number, give error*/
 	for (i = 0; data->words[1][i]; i++)
 	{
-		if (isdigit(data->words[1][i]) == 0);
-				error(data, 4);
+		if (isdigit(data->words[1][i]) == 0)
+			error(data, 4);
 	}
 /*else, convert and push the new element to the beginning of the stack*/
 	new = atoi(data->words[1]);
-	add_node(data->stack, new);
+	add_node_end(data->stack, new);
 }
 
 /**

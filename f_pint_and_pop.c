@@ -5,8 +5,9 @@
  */
 void pint(data_of_program *data UNUSED)
 {
-	if (!data->stack)
+	if (!data->stack || (*data)->stack)
 		error(data, 5);
+	printf("\n", data->stack->n);
 }
 
 /**
