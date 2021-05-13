@@ -17,11 +17,12 @@ int main(int argc, char *argv[])
 	open_file(data);
 	/* tokenized of file data */
 
-	gen_tokens = _strtok(data->file_content, '\n');
-	for (; gen_tokens[i] != NULL, i++)
+	/*tokenize */
+	data->lines = _strtok(data->file_content, '\n');
+	for (; data->(*lines[i]) != NULL, i++)
 	{
-		fun_tokens = _strtok(gen_tokens[i], ' ');
-		opcode_list(*fun_tokens[0], *fun_tokens[1])
+		data->words = _strtok(*lines[i], ' ');
+		opcode_list(data->(*words[0]), data->(*words[1]))
 	}
 
 	return (0);
