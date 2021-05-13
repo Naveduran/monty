@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	while (lines[i] != NULL)
 	{
 		words = data->words = _strtok(lines[i], delim_spc);
-		(opcode_list(words[0]))(data->head, words[1]);
+		(opcode_list(words[0]))(data->head, words[1], data);
 		i++;
 	}
 	return (0);

@@ -41,10 +41,11 @@ typedef struct stack_s
  */
 typedef struct info
 {
+	/*data how changes every line */
 	unsigned int line_number;
 	char *actual_line;
 	char **words;
-
+  /* data who don't change */
 	char file_content[BUFFER_SIZE];
 	char *file_path;
 	char **lines;
@@ -62,7 +63,7 @@ typedef struct info
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*function)(stack_p **, char *);
+	void (*function)(stack_p **stack, char *n, data_of_program *data);
 } instruction_t;
 
 /************** MAIN FUNCTIONS **************/
@@ -71,26 +72,26 @@ typedef struct instruction_s
 void inicialize_data(data_of_program *data, int argc, char *argv[]);
 void open_file(data_of_program *data, char *argv[]);
 void error(data_of_program *data, int error);
-void (*opcode_list(char *instruction))(stack_p **, char *);
+void (*opcode_list(char *instruction))(stack_p **stack, char *n, data_of_program *data);
 
 char **_strtok(char *text, char *delimiter);
 
 
 /************** OP FUNCTIONS ***************/
 /* pushes an element to the stack */
-void push(stack_p **head, char  *data);
+void push(stack_p **stack, char  *data, data_of_program *data);
 /* prints all the values on the stack, starting from the top of the stack */
-void pall(stack_p **head, char *data);
+void pall(stack_p **stack, char  *data, data_of_program *data);
 /* prints the value at the top of the stack, followed by a new line */
-void pint(stack_p **head, char *data);
+void pint(stack_p **stack, char  *data, data_of_program *data);
 /* removes the top element of the stack */
-void pop(stack_p **head, char *data);
+void pop(stack_p **stack, char  *data, data_of_program *data);
 /* adds the top two elements of the stack */
-void add(stack_p **head, char *data);
+void add(stack_p **stack, char  *data, data_of_program *data);
 /* swaps the top two elements of the stack */
-void swap(stack_p **head, char *data);
+void swap(stack_p **stack, char  *data, data_of_program *data);
 /* do nothing */
-void nop(stack_p **head, char *data);
+void nop(stack_p **stack, char  *data, data_of_program *data);
 /************** LIST HELPERS ***************/
 
 /* print all the nodes of the stack */
@@ -111,13 +112,16 @@ char *_strdup(char *str);
 int countargs(char *copytext, char *delimiter);
 char **_split(int args, char *text, char *delimiter);
 
+/* OTHERS  */
+/* compare two strings */
+int str_compare(char *string1, char *string2, int number);
+
+
 /* FREE MEMORY */
 /* frees each pointer of an array of pointers and the array too */
 void free_array_of_pointers(char **array);
-
 /* free the fields needed each readed line */
 void free_recurrent_data(data_of_program *data);
-
 /* Free all field of the data structure */
 void free_all_data(data_of_program *data);
 

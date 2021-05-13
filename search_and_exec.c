@@ -5,7 +5,7 @@
  * Return: Returns the return of the function executed is there is a match,
  * otherwise returns -1.
  **/
-void (*opcode_list(char *instruction))(stack_p **,  char *)
+void (*opcode_list(char *instruction))(stack_p **,  char *, data_of_program *)
 {
 	int iterator = 0;
 	instruction_t options[] = {
