@@ -103,6 +103,9 @@ stack_t *add_node(stack_p **stack, int n);
 stack_t *add_node_end(stack_p **stack, int n);
 /* free stack */
 void free_stack(stack_p *stack);
+/* delete node at index position */
+int delete_at_index(stack_p **stack, unsigned int index);
+
 /* fill a buff with a char */
 char *_memset(char *s, char b, unsigned int n);
 
