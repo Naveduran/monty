@@ -9,7 +9,7 @@ size_t print_stack(stack_t *stack)
 {
 	if (!stack)
 		return (0);
-	printf("%d\n", head->n);
+	printf("%d\n", stack->n);
 	return (1 + print_stack(stack->next));
 }
 
@@ -22,9 +22,9 @@ size_t stack_len(stack_t *stack)
 {
 	size_t i = 0;
 
-	if (head == NULL)
+	if (stack == NULL)
 		return (0);
-	for (i = 0; head != NULL; i++)
+	for (i = 0; stack != NULL; i++)
 	{
 		stack = stack->next;
 	}
@@ -73,7 +73,7 @@ stack_t *add_node_end(stack_t **stack, int n)
 {
 	stack_t *new = NULL, *prev = NULL;
 
-	if (!head)
+	if (!stack)
 		return (NULL);
 
 	new = malloc(sizeof(stack_t));

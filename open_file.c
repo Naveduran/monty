@@ -1,41 +1,28 @@
 #include "monty.h"
 /**
- *
- *
- *
- *
- *
+ * open_file - open the path of the file and saves the file_content
+ * @data: data of program
+ * Return:..
  */
-void *open_file(data_of_program *data) /* recive a  route to a file */
+
+void open_file(data_of_program *data)
 {
-
   /* initialization of vars */
-	struct_stat stat_struc; /*struct to save the data from stack funtion */
-	int size = 0;
-	ssize_of  open_status, read_status;
+	struct stat *buf = NULL;
+	int file_desc;
+	ssize_t status;
 
-  /* stat over absolute route to argv */
-	if (stat(file_path, stat_struc) == -1)
-	{
-		fprintf /*print error mensaje */
-		exit;
-	}
+	status = stat(data->file_path, buf); /* Check if file exist */
+	if (status == -1) /* If don't exist */
+		error(data, 1);
 
-	/* if stat != -1 then open the file */
-	open_status = open(file_path, O_RDONLY);
-	if(file_desc == -1)
-	{
-		fprintf (asd);  /* imprimir el error*/
-		exit;  /* status failure */
-	}
-  /*  if  the  file exist then read */
-  size = stat_struc->st_size;
-	if (read(open_status, data->file_content, size) == -1)
-	{
-		fprintf; /*imprimir salida de error*/
-		exit;
-	}
+	file_desc = open(data->file_path, O_RDONLY); /* Try to open */
+	if(file_desc == -1) /* If can't be open */
+		error(data, 1);
 
-	printf(file_data); /* TESTING PRINT */
-	
+	status = read(file_desc, data->file_content, BUFFER_SIZE); /* Try to read*/
+	if (status == -1) /* If it can't be read*/
+		error(data, 1);
+
+	printf("Print the content of the file for test:\n %s\n", data->file_content);
 }

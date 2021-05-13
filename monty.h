@@ -6,8 +6,7 @@
 #include <stdlib.h> /* for exit failure or success*/
 #include <string.h> /* for strtok, strlen*/
 #include <errno.h> /* for errno and perror */
-#include <sys/types.h> /* for type pid */
-#include <sys/wait.h> /* for wait */
+#include <sys/types.h> /* for type open files */
 #include <sys/stat.h> /* for use of stat function */
 #include <fcntl.h> /* for open files*/
 
@@ -20,19 +19,7 @@
 #define BUFFER_SIZE 4048
 
 /************* STRUCTURES **************/
-/**
- * struct info- struct for the program's data
- */
-typedef struct info
-{
-	unsigned int line_number;
-	char *file_path;
-	char file_content[BUFFER_SIZE];
-	char *actual_line;
-	char **lines;
-	char **words;
-	stack_t **stack;
-} data_of_program;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -47,7 +34,29 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} stack_p;
+} stack_t;
+
+/**
+ * struct info- struct for the program's data
+ */
+typedef struct info
+{
+/* data who changes every line readed*/
+	unsigned int line_number;
+	char *actual_line;
+	char **words;
+
+/* data who don't change*/
+	char *file_path;
+	char *file_content;
+	char **lines;
+
+/* the double linked list to change with operations*/
+	stack_t **stack;
+
+} data_of_program;
+
+
 
 /**
  * struct instruction_s - opcode and its function
@@ -65,25 +74,44 @@ typedef struct instruction_s
 
 /************** MAIN FUNCTIONS **************/
 
-/* print error message to stout and exit_failure to stderr */
-void error_manage(int error, data_of_program *data);
-void inicialize_data(data_of_program *data, int argc, char *argv[]);
+/* creates and initialize the structure data_of program */
+void inicialize_data(int argc, char *argv[], data_of_program *data);
+
+/**/
 void open_file(data_of_program *data);
 
-/************** _STRTOK FUNCTIONS **************/
+/* print error message to stout and exit_failure to stderr */
+void error(data_of_program *data, int error);
 
-char *_strdup(char *str);
-int countargs(char *copytext, char *delimiter);
-char **_split(int args, char *text, char *delimiter);
 char **_strtok(char *text, char *delimiter);
 
+/*************** OPERATIONS **********/
 
-/************** OP FUNCTIONS ***************/
+/* pushes an element to the stack */
+void push(data_of_program *data);
+
+/* prints all the values on the stack, starting from the top of the stack */
+void pall(data_of_program *data);
+
+/* prints the value at the top of the stack, followed by a new line */
+void pint(data_of_program *data);
+
+/* removes the top element of the stack */
+void pop(data_of_program *data);
+
+/* swaps the top two elements of the stack */
+void swap(data_of_program *data);
+
+/* adds the top two elements of the stack */
+void add(data_of_program *data);
+
+/* doesn't do anything' */
+void nop(data_of_program *data);
 
 
+/************** HELPERS ***************/
 
-/************** LIST HELPERS ***************/
-
+/*LIST MANAGEMENT*/
 /* print all the nodes of the stack */
 size_t print_stack(stack_t *stack);
 /* return the number of elements in the stack */
@@ -95,11 +123,26 @@ stack_t *add_node_end(stack_t **stack, int n);
 /* free stack */
 void free_stack(stack_t *stack);
 
+/* _STRTOK */
 
+char *_strdup(char *str);
+int countargs(char *copytext, char *delimiter);
+char **_split(int args, char *text, char *delimiter);
 
+/* OTHERS */
 
+/* Compare two strings */
+int str_compare(char *string1, char *string2, int number);
 
+/* FREE MEMORY */
+/* frees each pointer of an array of pointers and the array too */
+void free_array_of_pointers(char **array);
 
+/* free the fields needed each readed line */
+void free_recurrent_data(data_of_program *data);
+
+/* Free all field of the data structure */
+void free_all_data(data_of_program *data);
 
 
 #endif /* MONTY_H */

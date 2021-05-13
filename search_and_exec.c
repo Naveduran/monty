@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "monty.h"
 
 /**
  * builtins_list - search for match and execute the associate builtin
@@ -15,6 +15,7 @@ int opcode_list(data_of_program *data)
 		{"pint", pint},
 		{"pop", pop},
 		{"add", add},
+		{"swap", swap},
 		{"nop", nop},
 		{NULL, NULL}
 	};
@@ -23,10 +24,11 @@ int opcode_list(data_of_program *data)
 	for (iterator = 0; options[iterator].opcode != NULL; iterator++)
 	{
 		/*if there is a match between the given command and a builtin,*/
-		if (str_compare(options[iterator].opcode, data->instruction, 0))
+		if (str_compare(options[iterator].opcode, data->words[0], 0))
 		{
 			/*execute the function, and return the return value of the function*/
-			return (options[iterator].function(data));
+			options[iterator].function(data);
+			return (0);
 		}
 		/*if there is no match return -1 */
 	}
