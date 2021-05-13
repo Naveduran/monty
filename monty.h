@@ -71,7 +71,7 @@ void open_file(data_of_program *data, char *argv[]);
 
 void error(data_of_program *data, int error);
 
-void opcode_list (data_of_program *data);
+int opcode_list(data_of_program *data);
 
 char **_strtok(char *text, char *delimiter);
 
