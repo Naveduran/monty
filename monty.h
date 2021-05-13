@@ -1,5 +1,5 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h> /* for printf*/
 #include <unistd.h> /* for fork, execve*/
@@ -20,7 +20,19 @@
 #define BUFFER_SIZE 4048
 
 /************* STRUCTURES **************/
-
+/**
+ * struct info- struct for the program's data
+ */
+typedef struct info
+{
+	unsigned int line_number;
+	char *file_path;
+	char file_content[BUFFER_SIZE];
+	char *actual_line;
+	char **lines;
+	char **words;
+	stack_t **stack;
+} data_of_program;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -35,8 +47,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} stack_t;
-
+} stack_p;
 
 /**
  * struct instruction_s - opcode and its function
@@ -52,24 +63,12 @@ typedef struct instruction_s
 	void (*function)(data_of_program *data);
 } instruction_t;
 
-/**
- * struct info- struct for the program's data
- */
-typedef struct info
-{
-	unsigned int line_number;
-	char *file_path;
-	char *file_content;
-	char *actual_line;
-	char **lines;
-	char **words;
-	stack_t **stack;
-} data_of_program;
-
 /************** MAIN FUNCTIONS **************/
 
 /* print error message to stout and exit_failure to stderr */
 void error_manage(int error, data_of_program *data);
+void inicialize_data(data_of_program *data, int argc, char *argv[]);
+void open_file(data_of_program *data);
 
 /************** _STRTOK FUNCTIONS **************/
 
@@ -103,4 +102,4 @@ void free_stack(stack_t *stack);
 
 
 
-#endif /* HOLBERTON_H */
+#endif /* MONTY_H */
