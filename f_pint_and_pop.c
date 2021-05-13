@@ -5,9 +5,9 @@
  */
 void pint(data_of_program *data)
 {
-	if (!data->stack || (*data)->stack)
+	if (!data->stack)
 		error(data, 5);
-	printf("%s\n", data->stack->n);
+	printf("%d\n", (*data->stack)->n);
 }
 
 /**

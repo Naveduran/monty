@@ -7,7 +7,7 @@ void push(data_of_program *data)
 {
 	int i, new;
 
-	data->words[1];
+/*	data->words[1];*/
 /*If it's not a number, give error*/
 	for (i = 0; data->words[1][i]; i++)
 	{
@@ -23,7 +23,7 @@ void push(data_of_program *data)
  * pall - prints all the values on the stack, starting from the top of stack
  * @data: data of program
  */
-void pall(data_of_program *data UNUSED)
+void pall(data_of_program *data)
 {
-	print_stack(data->stack);
+	print_stack((*data->stack));
 }

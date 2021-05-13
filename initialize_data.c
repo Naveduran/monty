@@ -19,5 +19,5 @@ void inicialize_data(data_of_program *data, int argc, char *argv[])
 	data->actual_line = NULL;
 	data->lines = NULL;
 	data->words = NULL;
-	data->head = stack;
+	data->stack = stack;
 }

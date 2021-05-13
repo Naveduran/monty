@@ -94,17 +94,19 @@ void nop(data_of_program *data);
 /************** LIST HELPERS ***************/
 
 /* print all the nodes of the stack */
-size_t print_stack(stack_p **stack);
+size_t print_stack(stack_p *stack);
 /* return the number of elements in the stack */
-size_t stack_len(stack_p *stack);
+size_t stack_len(stack_p **stack);
 /* add node in stack */
 stack_t *add_node(stack_p **stack, int n);
 /* add node at end of a stack */
 stack_t *add_node_end(stack_p **stack, int n);
 /* free stack */
-void free_stack(stack_p *stack);
+void free_stack(stack_p **stack);
 /* fill a buff with a char */
 char *_memset(char *s, char b, unsigned int n);
+/* delete a node */
+int delete_at_index(stack_p **stack, unsigned int index);
 
 /* strtok */
 char *_strdup(char *str);

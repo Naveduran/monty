@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 	data_of_program data_struct, *data = &data_struct;
-	char *delim_line = "\n", *delim_spc = " ", **lines, **words;
+	char *delim_line = "\n", *delim_spc = " ", **lines;
 	int i = 0;
 
 	inicialize_data(data, argc, argv);
@@ -19,8 +19,8 @@ int main(int argc, char *argv[])
 	lines = data->lines = _strtok(data->file_content, delim_line);
 	while (lines[i] != NULL)
 	{
-		words = data->words = _strtok(lines[i], delim_spc);
-		(opcode_list(words[0]))(data->head, words[1], data);
+		data->words = _strtok(lines[i], delim_spc);
+		opcode_list(data);
 		i++;
 	}
 	return (0);
