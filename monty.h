@@ -134,6 +134,9 @@ char **_split(int args, char *text, char *delimiter);
 /* Compare two strings */
 int str_compare(char *string1, char *string2, int number);
 
+/* erase extra spaces in an array of chars */
+void erase_double_spaces(char *line);
+
 /* FREE MEMORY */
 /* frees each pointer of an array of pointers and the array too */
 void free_array_of_pointers(char **array);

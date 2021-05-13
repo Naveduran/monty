@@ -5,13 +5,19 @@
  */
 void push(data_of_program *data UNUSED)
 {
+  int i, new;
 
-	if (type(data->words[1]) != int)
-		error(data, 4);
-/*
- *recibe un entero y lo mete en el stack
- *usar la funcion atoi
- */
+	data->words[1];
+
+/*If it's not a number, give error*/
+	for (i = 0; data->words[1][i]; i++)
+	{
+		if (isdigit(data->words[1][i]) == 0);
+				error(data, 4);
+	}
+/*else, convert and push the new element to the beginning of the stack*/
+	new = atoi(data->words[1]);
+	add_node(data->stack, new);
 }
 
 /**

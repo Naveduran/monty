@@ -33,7 +33,7 @@ size_t stack_len(stack_t *stack)
 
 /**
  * add_node - add node in stack
- * @head: pointer to head of the stack
+ * @stack: pointer to head of the stack
  * @n: value to assign to the new node
  * Return: new node's direction
  */
