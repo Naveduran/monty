@@ -8,16 +8,17 @@
 void inicialize_data(data_of_program *data, int argc, char *argv[])
 {
 	 stack_p **stack = NULL;
+	 stack_p *head = NULL;
   /* just 'monty' on the command line or more than two arguments */
 	if (argc == 1 || argc > 2)
 	{
 		error(data, 0);
 	}
 	data->file_path = argv[1];
-	printf("%s\n", data->file_path); /*test line*/
 	data->line_number = 1;
 	data->actual_line = NULL;
 	data->lines = NULL;
 	data->words = NULL;
 	data->stack = stack;
+	data->head = head;
 }

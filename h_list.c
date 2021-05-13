@@ -5,12 +5,13 @@
  * @stack: pointer to head of the stack
  * Return: number of fields printed
  */
-size_t print_stack(stack_p *stack)
+void print_stack(stack_p *stack)
 {
+	
 	if (!stack)
-		return (0);
-	printf("%d\n", (stack)->n);
-	return (1 + print_stack(stack->next));
+		return;
+	print_stack(stack->next);
+	printf("%d\n", stack->n);
 }
 
 /**
