@@ -6,12 +6,13 @@
 void pint(data_of_program *data)
 {
 	stack_p *stack = NULL;
+
 	stack = data->head;
 
 	if (!data->head)
 		error(data, 5);
 /* loop to goes at the last element in stack */
-	for(;stack->next != NULL; stack = stack->next)
+	for (; stack->next != NULL; stack = stack->next)
 	{}
 	printf("%d\n", (stack->n));
 }
