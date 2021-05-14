@@ -114,6 +114,8 @@ void delete_at_end(stack_p *stack);
 char *_strdup(char *str, data_of_program *data);
 int countargs(char *copytext, char *delimiter);
 char **_split(int args, char *text, char *delimiter, data_of_program *data);
+char **_strtok(char *text, char *delimiter, data_of_program *data);
+
 
 /* OTHERS  */
 /* compare two strings */
