@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
  * error_manage - print error message to stout and exit_failure to stderr
+ * @data: data of program
  * @error: number of the error
  */
 void error(data_of_program *data, int error)
