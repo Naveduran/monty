@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	char *delim_line = "\n", *delim_spc = " ", **lines = NULL;
 	int i = 0;
 
-	if (argc > 2)
+	if (argc < 2)
 	{
 		error(data, 0);
 	}
