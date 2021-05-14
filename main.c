@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
 		list(data);
 		data->line_number = data->line_number + 1;
 		i++;
+		free_recurrent_data(data);/* free data->words */
 	}
+	free_all_data(data);
 	return (0);
 }
