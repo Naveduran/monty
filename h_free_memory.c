@@ -20,14 +20,14 @@ void free_recurrent_data(data_of_program *data)
 void free_all_data(data_of_program *data)
 {
 	free_recurrent_data(data);
-	if (file_content)
+	if (data->file_content)
 		free(data->file_content);
 	if (data->file_path)
 		free(data->file_path);
 	if (data->lines)
 		free_array_of_pointers(data->lines);
 	if (data->head)
-		free_stack(data->head);
+		free(data->head);
 	if (data->stack)
 		free_stack(data->stack);
 }
