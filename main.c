@@ -8,7 +8,6 @@
 int main(int argc, char *argv[])
 {
 	data_of_program data_struct, *data = &data_struct;
-
 	char *delim_line = "\n", *delim_spc = " ", **lines = NULL;
 	int i = 0;
 
@@ -17,18 +16,10 @@ int main(int argc, char *argv[])
 		error(data, 0);
 	}
 
-	char *delim_line = "\n", *delim_spc = " ", **lines;
-	int i = 0;
-
 	inicialize_data(data, argc, argv);
 	/* printf("%s path\n", argv[1]); TEST PRINT*/
 	/* open and read the data from file return a buffer to file data */
 	open_file(data, argv);
-
-	/* tokenize */
-	lines = data->lines = _strtok(data->file_content, delim_line, data);
-
-	while (data->lines[i] != NULL)
 
 	/*tokenize */
 	lines = data->lines = _strtok(data->file_content, delim_line, data);
