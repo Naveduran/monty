@@ -58,7 +58,7 @@ Now you can **use the command monty since anywhere** in your linux machine.
 
 ## Monty is a programming language!
 
-Easy to use and amazing performance! 
+Easy to use and amazing performance!
 To know more about this programming language, click [here](
 http://montyscoconut.github.io/).
 
@@ -80,10 +80,10 @@ http://montyscoconut.github.io/).
   |[h_free_memory.c](./file)|Helpers to manage memory.|
   |[h_others.c](./file)|Other helpers, to compare strings.|
   |[monty.h](./file)|Header file.|
- 
+
  ## Environment
  This project has been tested on `Ubuntu 14.06.6 LTS`
- 
+
  ## Authors
 * **Natalia Vera:** [GitHub](https://github.com/Naveduran) - [Email](naveduran@gmail.com) - [Twitter](https://twitter.com/NaVeDuran1)
 *  **Luis Enrique Mejía M.:** [GitHub](https://github.com/lemejiamo)
