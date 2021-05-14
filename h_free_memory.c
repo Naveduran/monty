@@ -10,10 +10,6 @@ void free_recurrent_data(data_of_program *data)
 /* Free double pointers */
 	if (data->words)
 		free_array_of_pointers(data->words);
-
-/* Free arrays */
-	if (data->actual_line)
-		free(data->actual_line);
 }
 
 /**
@@ -24,10 +20,16 @@ void free_recurrent_data(data_of_program *data)
 void free_all_data(data_of_program *data)
 {
 	free_recurrent_data(data);
-	free_array_of_pointers(data->lines);
-/* free the stack, the double linked list*/
+	if (file_content)
+		free(data->file_content);
 	if (data->file_path)
 		free(data->file_path);
+	if (data->lines)
+		free_array_of_pointers(data->lines);
+	if (data->head)
+		free_stack(data->head);
+	if (data->stack)
+		free_stack(data->stack);
 }
 
 /**
