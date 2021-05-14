@@ -42,7 +42,6 @@ typedef struct info
 	/*data who changes every line */
 	unsigned int line_number;
 	char **words;
-	char *actual_line;
 	/* data who don't change */
 	char file_content[BUFFER_SIZE];
 	char *file_path;
