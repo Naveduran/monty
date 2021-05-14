@@ -116,7 +116,6 @@ int countargs(char *copytext, char *delimiter);
 char **_split(int args, char *text, char *delimiter, data_of_program *data);
 char **_strtok(char *text, char *delimiter, data_of_program *data);
 
-
 /* OTHERS  */
 /* compare two strings */
 int str_compare(char *string1, char *string2, int number);
