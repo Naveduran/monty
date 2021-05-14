@@ -5,7 +5,6 @@
  */
 void error(data_of_program *data, int error)
 {
-
 	if (error == 0)
 		printf("USAGE: monty file\n");
 	if (error == 1)
@@ -25,7 +24,7 @@ void error(data_of_program *data, int error)
 	if (error == 8)
 		printf("L%d: can't add, stack too short\n", data->line_number);
 
-/* Liberar todo antes de salir */
+	free_all_data(data);
 	exit(EXIT_FAILURE);
 
 }
