@@ -73,10 +73,6 @@ void error(data_of_program *data, int error);
 
 void list(data_of_program *data);
 
-void tokenize_new_line(data_of_program *data);
-
-void tokenize_to_words(data_of_program *data);
-
 
 /************** OPERATIONS ***************/
 /* pushes an element to the stack */
