@@ -27,8 +27,8 @@ char *_strdup(char *str, data_of_program *data)
 	{
 		dup[j] = str[j];
 	}
-	j -= 1;
-	dup[j] = '\0';
+/* j -= 1; */
+/*	dup[j] = '\0';*/
 	return (dup);
 }
 /**
@@ -113,7 +113,7 @@ char **_strtok(char *text, char *delimiter, data_of_program *data)
 	if (!text)
 		return (gen_tokens);
 
-	copytext = _strdup(text, data);
+	copytext = strdup(text);
 	args = countargs(copytext, delimiter);
 	gen_tokens = _split(args, copytext, delimiter, data);
 

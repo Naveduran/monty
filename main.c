@@ -8,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 	data_of_program data_struct, *data = &data_struct;
-	char *delim_line = "\n", *delim_spc = " ", **lines;
+	char *delim_line = "\n", *delim_spc = " ", **lines = NULL;
 	int i = 0;
 
 	inicialize_data(data, argc, argv);
@@ -25,6 +25,6 @@ int main(int argc, char *argv[])
 		i++;
 /*		free_recurrent_data(data); free data->words */
 	}
-	free_all_data(data);
+/*	free_all_data(data);*/
 	return (0);
 }

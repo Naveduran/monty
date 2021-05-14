@@ -129,5 +129,4 @@ void free_recurrent_data(data_of_program *data);
 /* Free all field of the data structure */
 void free_all_data(data_of_program *data);
 
-
 #endif /* MONTY_H */

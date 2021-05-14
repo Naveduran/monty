@@ -8,7 +8,7 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
+	unsigned int i = 0;
 
 	for (i = 0; i < n; i++)
 		s[i] = b;
@@ -41,6 +41,6 @@ void open_file(data_of_program *data, char *argv[])
 		_memset(data->file_content, '\0', BUFFER_SIZE);
 		if (read(open_status, data->file_content, size) == -1)
 			error(data, 1);
-		close(open_status);
-	}
+		}
+	close(open_status);
 }
