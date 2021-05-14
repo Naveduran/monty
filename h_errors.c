@@ -7,7 +7,10 @@
 void error(data_of_program *data, int error)
 {
 	if (error == 0)
+	{
 		printf("USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	if (error == 1)
 		printf("Error: Can't open file %s\n", data->file_path);
 	if (error == 2)
@@ -24,8 +27,6 @@ void error(data_of_program *data, int error)
 		printf("L%d: can't swap, stack too short\n", data->line_number);
 	if (error == 8)
 		printf("L%d: can't add, stack too short\n", data->line_number);
-
 	free_all_data(data);
 	exit(EXIT_FAILURE);
-
 }

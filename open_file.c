@@ -41,5 +41,6 @@ void open_file(data_of_program *data, char *argv[])
 		_memset(data->file_content, '\0', BUFFER_SIZE);
 		if (read(open_status, data->file_content, size) == -1)
 			error(data, 1);
+		close(open_status);
 	}
 }

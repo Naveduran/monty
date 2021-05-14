@@ -5,15 +5,11 @@
  * @argv: array of arguments pased to the program execution
  * @argc: number of values received from the command line
  */
-void inicialize_data(data_of_program *data, int argc, char *argv[])
+void inicialize_data(data_of_program *data, int argc UNUSED, char *argv[])
 {
 	 stack_p **stack = NULL;
 	 stack_p *head = NULL;
   /* just 'monty' on the command line or more than two arguments */
-	if (argc == 1 || argc > 2)
-	{
-		error(data, 0);
-	}
 	data->file_path = argv[1];
 	data->line_number = 1;
 	data->lines = NULL;
