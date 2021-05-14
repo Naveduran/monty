@@ -15,7 +15,7 @@ void push(data_of_program *data)
 	}
 /*else, convert and push the new element to the beginning of the stack*/
 	new = atoi(data->words[1]);
-	add_node_end(&(data->head), new);
+	add_node_end(&(data->head), new, data);
 }
 
 /**

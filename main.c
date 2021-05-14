@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 	/* open and read the data from file return a buffer to file data */
 	open_file(data, argv);
 	/*tokenize */
-	lines = data->lines = _strtok(data->file_content, delim_line);
+	lines = data->lines = _strtok(data->file_content, delim_line, data);
 	while (lines[i] != NULL)
 	{
-		data->words = _strtok(lines[i], delim_spc);
+		data->words = _strtok(lines[i], delim_spc, data);
 		list(data);
 		data->line_number = data->line_number + 1;
 		i++;

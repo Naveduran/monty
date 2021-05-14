@@ -37,7 +37,7 @@ size_t stack_len(stack_p **stack)
  * @n: value to assign to the new node
  * Return: new node's direction
  */
-stack_t *add_node(stack_p **stack, int n)
+stack_t *add_node(stack_p **stack, int n, data_of_program *data)
 {
 	stack_p *new = NULL;
 
@@ -69,7 +69,7 @@ stack_t *add_node(stack_p **stack, int n)
  * @n: return the number of elements in the stack
  * Return: new node's direction
  */
-stack_t *add_node_end(stack_p **stack, int n)
+stack_t *add_node_end(stack_p **stack, int n, data_of_program *data)
 {
 	stack_p *new = NULL, *prev = NULL;
 

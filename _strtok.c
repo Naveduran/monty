@@ -4,7 +4,7 @@
  * @str: string
  * Return: pointer to dup or null
  */
-char *_strdup(char *str)
+char *_strdup(char *str, data_of_program *data)
 {
 	char *dup;
 	int i = 0;
@@ -60,7 +60,7 @@ return (args);
 * @delimiter: delimiter
 * Return: gen_tokens
 */
-char **_split(int args, char *text, char *delimiter)
+char **_split(int args, char *text, char *delimiter, data_of_program *data)
 {
 	int i = 0, k = 0;
 	char *currenttext = '\0';
@@ -104,7 +104,7 @@ return (gen_tokens);
  * @delimiter: delimiter to split strings
  * Return: **pointer to array splited
  */
-char **_strtok(char *text, char *delimiter)
+char **_strtok(char *text, char *delimiter, data_of_program *data)
 {
 	int args = 0; /* inicia los iteradores */
 	char **gen_tokens = '\0', *copytext = '\0';
@@ -113,9 +113,9 @@ char **_strtok(char *text, char *delimiter)
 	if (!text)
 		return (gen_tokens);
 
-	copytext = _strdup(text);
+	copytext = _strdup(text, data);
 	args = countargs(copytext, delimiter);
-	gen_tokens = _split(args, copytext, delimiter);
+	gen_tokens = _split(args, copytext, delimiter, data);
 
 	if (gen_tokens[0] == NULL)
 		free(copytext);

@@ -74,7 +74,7 @@ void error(data_of_program *data, int error);
 
 void list(data_of_program *data);
 
-char **_strtok(char *text, char *delimiter);
+char **_strtok(char *text, char *delimiter, data_of_program *data);
 
 /************** OPERATIONS ***************/
 /* pushes an element to the stack */
@@ -99,9 +99,9 @@ void print_stack(stack_p *stack);
 /* return the number of elements in the stack */
 size_t stack_len(stack_p **stack);
 /* add node in stack */
-stack_t *add_node(stack_p **stack, int n);
+stack_t *add_node(stack_p **stack, int n, data_of_program *data);
 /* add node at end of a stack */
-stack_t *add_node_end(stack_p **stack, int n);
+stack_t *add_node_end(stack_p **stack, int n, data_of_program *data);
 /* free stack */
 void free_stack(stack_p **stack);
 /* delete node at index position */
@@ -113,9 +113,9 @@ char *_memset(char *s, char b, unsigned int n);
 void delete_at_end(stack_p *stack);
 
 /* strtok */
-char *_strdup(char *str);
+char *_strdup(char *str, data_of_program *data);
 int countargs(char *copytext, char *delimiter);
-char **_split(int args, char *text, char *delimiter);
+char **_split(int args, char *text, char *delimiter, data_of_program *data);
 
 /* OTHERS  */
 /* compare two strings */
