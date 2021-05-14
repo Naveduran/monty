@@ -2,6 +2,7 @@
 /**
  * _strdup -  duplicate a string
  * @str: string
+ * @data: data of program
  * Return: pointer to dup or null
  */
 char *_strdup(char *str, data_of_program *data)
@@ -58,6 +59,7 @@ return (args);
 * @text: string to divide
 * @args: expected number of tokens
 * @delimiter: delimiter
+* @data: ...
 * Return: gen_tokens
 */
 char **_split(int args, char *text, char *delimiter, data_of_program *data)
@@ -102,6 +104,7 @@ return (gen_tokens);
  * _strtok - split a string in tokens and allocates memory
  * @text: pointer to string
  * @delimiter: delimiter to split strings
+ * @data: ...
  * Return: **pointer to array splited
  */
 char **_strtok(char *text, char *delimiter, data_of_program *data)

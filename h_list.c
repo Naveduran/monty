@@ -35,6 +35,7 @@ size_t stack_len(stack_p **stack)
  * add_node - add node in stack
  * @stack: pointer to head of the stack
  * @n: value to assign to the new node
+ * @data : data of program
  * Return: new node's direction
  */
 stack_t *add_node(stack_p **stack, int n, data_of_program *data)
@@ -67,6 +68,7 @@ stack_t *add_node(stack_p **stack, int n, data_of_program *data)
  * add_node_end - add node at end of a stack
  * @stack: pointer to head of stack
  * @n: return the number of elements in the stack
+ * @data: ...
  * Return: new node's direction
  */
 stack_t *add_node_end(stack_p **stack, int n, data_of_program *data)

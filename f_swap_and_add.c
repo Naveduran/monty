@@ -6,18 +6,18 @@
  */
 void swap(data_of_program *data)
 {
-        stack_p *current = NULL;
-				int swap, i = 0;
+	stack_p *current = NULL;
+	int swap, i = 0;
 
-        current = data->head;
-        for( ;current->next != NULL; current = current->next, i++)
-        {}
-				if (i < 2)
-					error(data, 7);
+	current = data->head;
+	for ( ; current->next != NULL; current = current->next, i++)
+	{}
+	if (i < 2)
+		error(data, 7);
 
-				swap = current->n;
-        current->n = current->prev->n;
-        current->prev->n = swap;
+	swap = current->n;
+	current->n = current->prev->n;
+	current->prev->n = swap;
 }
 /**
  * add - adds the top two elements of the stack
@@ -29,7 +29,7 @@ void add(data_of_program *data)
 	stack_p *current = NULL;
 
 	current = data->head;
-	for( ;current->next != NULL; current = current->next, i++)
+	for ( ; current->next != NULL; current = current->next, i++)
 	{}
 	if (i < 2)
 		error(data, 8);
