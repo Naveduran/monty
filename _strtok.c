@@ -1,38 +1,5 @@
 #include "monty.h"
 /**
- * _strdup -  duplicate a string
- * @str: string
- * @data: data of program
- * Return: pointer to dup or null
- */
-char *_strdup(char *str, data_of_program *data)
-{
-	char *dup;
-	int i = 0;
-	int j = 0;
-
-	if (!str)
-		return (NULL);
-
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-
-	dup = malloc(sizeof(char) * (i));
-
-	if (dup == NULL)
-		error(data, 3);
-
-	for (; j <= i; j++)
-	{
-		dup[j] = str[j];
-	}
-/* j -= 1; */
-/*	dup[j] = '\0';*/
-	return (dup);
-}
-/**
  * countargs - count the arguments in the input string
  * @copytext: a copy from input string
  * @delimiter: delimiter of args

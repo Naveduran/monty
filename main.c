@@ -17,13 +17,11 @@ int main(int argc, char *argv[])
 	}
 
 	inicialize_data(data, argc, argv);
-	/* printf("%s path\n", argv[1]); TEST PRINT*/
 	/* open and read the data from file return a buffer to file data */
 	open_file(data, argv);
 
 	/*tokenize */
 	lines = data->lines = _strtok(data->file_content, delim_line, data);
-	printf("<3\n");
 	while (lines[i] != NULL)
 	{
 		data->words = _strtok(lines[i], delim_spc, data);
@@ -31,6 +29,6 @@ int main(int argc, char *argv[])
 		data->line_number = data->line_number + 1;
 		i++;
 	}
-	free_all_data(data);
+	/*free_all_data(data);*/
 	return (0);
 }

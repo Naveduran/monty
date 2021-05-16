@@ -115,10 +115,10 @@ int delete_at_index(stack_p **stack, unsigned int index);
 /* fill a buff with a char */
 char *_memset(char *s, char b, unsigned int n);
 /* delete a node */
-void delete_at_end(stack_p *stack);
+void delete_at_end(stack_p *stack, stack_p **head);
 
 /* strtok */
-char *_strdup(char *str, data_of_program *data);
+/* char *_strdup(char *str, data_of_program *data); */
 int countargs(char *copytext, char *delimiter);
 char **_split(int args, char *text, char *delimiter, data_of_program *data);
 char **_strtok(char *text, char *delimiter, data_of_program *data);

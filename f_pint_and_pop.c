@@ -25,5 +25,8 @@ void pop(data_of_program *data)
 {
 	if (!data->head)
 		error(data, 6);
-	delete_at_end(data->head);/* Erase the first node */
+	delete_at_end(data->head, &(data->head));
+/* Erase the first node */
+/*	if(data->head->prev == NULL)
+		free(data->head);*/
 }
