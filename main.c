@@ -8,10 +8,9 @@
 int main(int argc, char *argv[])
 {
 	data_of_program data_struct, *data = &data_struct;
-	char *delim_line = "\n", *delim_spc = " ", **lines = NULL;
-	int i = 0;
+	char *delim_line = "\n", *delim_spc = " ", *token = NULL;
 
-	if (argc < 2)
+	if(argc < 2)
 	{
 		error(data, 0);
 	}
@@ -21,14 +20,21 @@ int main(int argc, char *argv[])
 	open_file(data, argv);
 
 	/*tokenize */
-	lines = data->lines = _strtok(data->file_content, delim_line, data);
-	while (lines[i] != NULL)
+	token =	strtok(data->file_content, delim_line);
+	while (token != NULL)
 	{
-		data->words = _strtok(lines[i], delim_spc, data);
-		list(data);
 		data->line_number = data->line_number + 1;
-		i++;
+		data->words = _strtok(token, delim_spc, data);
+		if (data->words[0] == NULL)
+		{}
+		else
+		{
+			list(data);
+			printf("este es el token %s\n", token);
+			printf("este es el numero de linea %d\n", data->line_number);
+		}
+	token =	strtok(NULL, delim_line);
 	}
-	/*free_all_data(data);*/
+/*free_all_data(data);*/
 	return (0);
 }
