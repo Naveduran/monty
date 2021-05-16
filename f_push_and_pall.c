@@ -8,6 +8,8 @@ void push(data_of_program *data)
 	int i, new;
 
 /*If it's not a number, give error*/
+	if(data->words[1] == NULL)
+		error(data, 4);
 	for (i = 0; data->words[1][i]; i++)
 	{
 		if (isdigit(data->words[1][i]) == 0)
