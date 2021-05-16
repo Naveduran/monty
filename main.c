@@ -23,14 +23,13 @@ int main(int argc, char *argv[])
 
 	/*tokenize */
 	lines = data->lines = _strtok(data->file_content, delim_line, data);
+	printf("<3\n");
 	while (lines[i] != NULL)
-
 	{
 		data->words = _strtok(lines[i], delim_spc, data);
 		list(data);
 		data->line_number = data->line_number + 1;
 		i++;
-		/*free_recurrent_data(data); free data->words */
 	}
 	free_all_data(data);
 	return (0);

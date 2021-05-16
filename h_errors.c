@@ -8,25 +8,26 @@ void error(data_of_program *data, int error)
 {
 	if (error == 0)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	if (error == 1)
-		printf("Error: Can't open file %s\n", data->file_path);
+		fprintf(stderr, "Error: Can't open file %s\n", data->file_path);
 	if (error == 2)
-		printf("L%d: unknown instruction %s\n", data->line_number, data->words[0]);
+		fprintf(stderr, "L%d: unknown instruction %s\n", data->line_number,
+						data->words[0]);
 	if (error == 3)
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 	if (error == 4)
-		printf("L%d: usage: push integer\n", data->line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", data->line_number);
 	if (error == 5)
-		printf("L%d: can't pint, stack empty\n", data->line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", data->line_number);
 	if (error == 6)
-		printf("L%d: can't pop an empty stack\n", data->line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", data->line_number);
 	if (error == 7)
-		printf("L%d: can't swap, stack too short\n", data->line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", data->line_number);
 	if (error == 8)
-		printf("L%d: can't add, stack too short\n", data->line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", data->line_number);
 	free_all_data(data);
 	exit(EXIT_FAILURE);
 }
