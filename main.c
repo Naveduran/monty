@@ -30,8 +30,6 @@ int main(int argc, char *argv[])
 		else
 		{
 			list(data);
-			printf("este es el token %s\n", token);
-			printf("este es el numero de linea %d\n", data->line_number);
 		}
 	token =	strtok(NULL, delim_line);
 	}
