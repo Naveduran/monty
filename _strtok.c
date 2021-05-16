@@ -50,7 +50,7 @@ char **_split(int args, char *text, char *delimiter, data_of_program *data)
 				text++;
 				currenttext = text;
 				k = -1;
-			}
+				}
 			else if (text[k] == *delimiter)
 			{
 				gen_tokens[i] = currenttext;
@@ -60,7 +60,9 @@ char **_split(int args, char *text, char *delimiter, data_of_program *data)
 				break;
 			}
 			else if (text[k + 1] == '\0')
+			{
 				gen_tokens[i] = currenttext;
+			}
 		}
 	}
 gen_tokens[i] = '\0';
