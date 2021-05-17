@@ -12,14 +12,17 @@ void error(data_of_program *data, int error)
 		exit(EXIT_FAILURE);
 	}
 	if (error == 1)
+	{
 		fprintf(stderr, "Error: Can't open file %s\n", data->file_path);
+		exit(EXIT_FAILURE);
+	}
 	if (error == 2)
 		fprintf(stderr, "L%d: unknown instruction %s\n", data->line_number,
 						data->words[0]);
 	if (error == 3)
 		fprintf(stderr, "Error: malloc failed\n");
 	if (error == 4)
-		fprintf(stderr, "L%d: usage: push integer\n", data->line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", (data->line_number+1));
 	if (error == 5)
 		fprintf(stderr, "L%d: can't pint, stack empty\n", data->line_number);
 	if (error == 6)
