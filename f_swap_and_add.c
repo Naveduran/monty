@@ -9,6 +9,8 @@ void swap(data_of_program *data)
 	stack_p *current = NULL;
 	int swap, i = 0;
 
+	if(data->head == NULL || data->head->next == NULL)
+		error(data, 7);
 	current = data->head;
 	for ( ; current->next != NULL; current = current->next, i++)
 	{}

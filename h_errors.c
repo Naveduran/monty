@@ -28,7 +28,9 @@ void error(data_of_program *data, int error)
 		fprintf(stderr, "L%d: can't swap, stack too short\n", data->line_number);
 	if (error == 8)
 		fprintf(stderr, "L%d: can't add, stack too short\n", data->line_number);
-	free_all(data);
+
+	if(data->head != NULL)
+		free_all(data);
   free((void *)data->words[0]);
 	free(data->words);
 	exit(EXIT_FAILURE);
