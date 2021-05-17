@@ -45,3 +45,73 @@ void add(data_of_program *data)
 	free(current);
 
 }
+/**
+ * sub - adds the top two elements of the stack
+ * @data: data of program
+ */
+void _sub(data_of_program *data)
+{
+	int sub = 0, i = 0;
+	stack_p *current = NULL;
+
+	if(data->head == NULL || data->head->next == NULL)
+		error(data, 8);
+	
+	current = data->head;
+	for (i = 1 ; current->next != NULL; current = current->next, i++)
+	{}
+	if (i < 2)
+		error(data, 8);
+
+	sub = current->n - current->prev->n;
+	current->prev->next = NULL;
+	current->prev->n = sub;
+	free(current);
+
+}/**
+ * div - adds the top two elements of the stack
+ * @data: data of program
+ */
+void _div(data_of_program *data)
+{
+	int div = 0, i = 0;
+	stack_p *current = NULL;
+
+	if(data->head == NULL || data->head->next == NULL)
+		error(data, 8);
+	
+	current = data->head;
+	for (i = 1 ; current->next != NULL; current = current->next, i++)
+	{}
+	if (i < 2)
+		error(data, 8);
+
+	div = current->n / current->prev->n;
+	current->prev->next = NULL;
+	current->prev->n = div;
+	free(current);
+
+}/**
+ * mul - adds the top two elements of the stack
+ * @data: data of program
+ */
+void _mul(data_of_program *data)
+{
+	int mul = 0, i = 0;
+	stack_p *current = NULL;
+
+	if(data->head == NULL || data->head->next == NULL)
+		error(data, 8);
+	
+	current = data->head;
+	for (i = 1 ; current->next != NULL; current = current->next, i++)
+	{}
+	if (i < 2)
+		error(data, 8);
+
+	mul = current->n * current->prev->n;
+	current->prev->next = NULL;
+	current->prev->n = mul;
+	free(current);
+
+}

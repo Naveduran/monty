@@ -17,6 +17,9 @@ void list(data_of_program *data)
 		{"add", add},
 		{"nop", nop},
 		{"swap", swap},
+		{"sub", _sub},
+		{"mul", _mul},
+		{"div", _div},
 		{NULL, NULL}
 	};
 

@@ -96,6 +96,12 @@ void add(data_of_program *data);
 void swap(data_of_program *data);
 /* do nothing */
 void nop(data_of_program *data);
+void _sub(data_of_program *data);
+void _mul(data_of_program *data);
+void _div(data_of_program *data);
+
+
+
 
 /************** LIST HELPERS ***************/
 
