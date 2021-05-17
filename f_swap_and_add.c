@@ -55,13 +55,13 @@ void _sub(data_of_program *data)
 	stack_p *current = NULL;
 
 	if(data->head == NULL || data->head->next == NULL)
-		error(data, 8);
+		error(data, 9);
 	
 	current = data->head;
 	for (i = 1 ; current->next != NULL; current = current->next, i++)
 	{}
 	if (i < 2)
-		error(data, 8);
+		error(data, 9);
 
 	sub = current->n - current->prev->n;
 	current->prev->next = NULL;
@@ -78,13 +78,13 @@ void _div(data_of_program *data)
 	stack_p *current = NULL;
 
 	if(data->head == NULL || data->head->next == NULL)
-		error(data, 8);
+		error(data, 11);
 	
 	current = data->head;
 	for (i = 1 ; current->next != NULL; current = current->next, i++)
 	{}
 	if (i < 2)
-		error(data, 8);
+		error(data, 11);
 
 	div = current->n / current->prev->n;
 	current->prev->next = NULL;
@@ -101,13 +101,13 @@ void _mul(data_of_program *data)
 	stack_p *current = NULL;
 
 	if(data->head == NULL || data->head->next == NULL)
-		error(data, 8);
+		error(data, 10);
 	
 	current = data->head;
 	for (i = 1 ; current->next != NULL; current = current->next, i++)
 	{}
 	if (i < 2)
-		error(data, 8);
+		error(data, 10);
 
 	mul = current->n * current->prev->n;
 	current->prev->next = NULL;

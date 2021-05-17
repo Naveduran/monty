@@ -31,7 +31,12 @@ void error(data_of_program *data, int error)
 		fprintf(stderr, "L%d: can't swap, stack too short\n", data->line_number);
 	if (error == 8)
 		fprintf(stderr, "L%d: can't add, stack too short\n", data->line_number);
-
+	if (error == 9)
+		fprintf(stderr, "L%d: can't sub, stack too short\n", data->line_number);
+	if (error == 10)
+		fprintf(stderr, "L%d: can't mul, stack too short\n", data->line_number);
+	if (error == 11)
+		fprintf(stderr, "L%d: can't div, stack too short\n", data->line_number);
 	if(data->head != NULL)
 		free_all(data);
   free((void *)data->words[0]);
