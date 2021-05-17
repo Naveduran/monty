@@ -33,8 +33,7 @@ int main(int argc, char *argv[])
 		}
 		if(data->words != NULL)
 		{
-			free(token);
-			/* free((void *)data->words[0]); */
+			free((void *)data->words[0]);
 			free(data->words);
 		}
 		token =	strtok(NULL, delim_line);
