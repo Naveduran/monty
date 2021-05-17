@@ -30,6 +30,9 @@ void add(data_of_program *data)
 	int add = 0, i = 0;
 	stack_p *current = NULL;
 
+	if(data->head == NULL || data->head->next == NULL)
+		error(data, 8);
+	
 	current = data->head;
 	for ( ; current->next != NULL; current = current->next, i++)
 	{}
