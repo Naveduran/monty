@@ -5,4 +5,5 @@
  */
 void nop(data_of_program * data UNUSED)
 {
+	return;
 }
