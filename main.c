@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
 	data_of_program data_struct, *data = &data_struct;
 	char *delim_line = "\n", *delim_spc = " ", *token = NULL;
-
+	
 	if(argc < 2)
 	{
 		error(data, 0);
@@ -31,8 +31,13 @@ int main(int argc, char *argv[])
 		{
 			list(data);
 		}
-	token =	strtok(NULL, delim_line);
+		if(data->words != NULL)
+		{
+			free((void *)data->words[0]);
+			free(data->words);
+		}
+		token =	strtok(NULL, delim_line);
 	}
-/*free_all_data(data);*/
+	free_all(data);
 	return (0);
 }

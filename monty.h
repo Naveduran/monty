@@ -135,5 +135,8 @@ void free_array_of_pointers(char **array);
 void free_recurrent_data(data_of_program *data);
 /* Free all field of the data structure */
 void free_all_data(data_of_program *data);
+void free_all(data_of_program *data);
+void free_til_end(stack_p *stack, stack_p  **head);
+
 
 #endif /* MONTY_H */
