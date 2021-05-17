@@ -22,7 +22,7 @@ void error(data_of_program *data, int error)
 	if (error == 3)
 		fprintf(stderr, "Error: malloc failed\n");
 	if (error == 4)
-		fprintf(stderr, "L%d: usage: push integer\n", (data->line_number+1));
+		fprintf(stderr, "L%d: usage: push integer\n", (data->line_number));
 	if (error == 5)
 		fprintf(stderr, "L%d: can't pint, stack empty\n", data->line_number);
 	if (error == 6)

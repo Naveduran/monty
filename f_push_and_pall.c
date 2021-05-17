@@ -12,7 +12,12 @@ void push(data_of_program *data)
 		error(data, 4);
 	for (i = 0; data->words[1][i]; i++)
 	{
-		if (isdigit(data->words[1][i]) == 0)
+		if ((data->words[1][i]) == '-')
+		{
+			if (isdigit(data->words[1][1]) == 0)
+			error(data, 4);
+		}
+		else if (isdigit(data->words[1][i]) == 0)
 			error(data, 4);
 	}
 /*else, convert and push the new element to the beginning of the stack*/
