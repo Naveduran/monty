@@ -11,7 +11,7 @@ void inicialize_data(data_of_program *data, int argc UNUSED, char *argv[])
 	 stack_p *head = NULL;
   /* just 'monty' on the command line or more than two arguments */
 	data->file_path = argv[1];
-	data->line_number = 1;
+	data->line_number = 0;
 	data->lines = NULL;
 	data->words = NULL;
 	data->stack = stack;

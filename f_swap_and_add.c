@@ -12,7 +12,7 @@ void swap(data_of_program *data)
 	if(data->head == NULL || data->head->next == NULL)
 		error(data, 7);
 	current = data->head;
-	for ( ; current->next != NULL; current = current->next, i++)
+	for (i = 1 ; current->next != NULL; current = current->next, i++)
 	{}
 	if (i < 2)
 		error(data, 7);
