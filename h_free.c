@@ -5,9 +5,10 @@
  */
 void free_all(data_of_program *data)
 {
-	do{
+	while(data->head != NULL)
+	{
         free_til_end(data->head, &(data->head));
-	}while(data->head != NULL);
+	}
 	return;
 }
 /**
